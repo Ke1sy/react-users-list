@@ -1,26 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Header, Main} from './components/Layout';
+import RM from './RouterManager';
+import {Switch, Route, Redirect} from "react-router-dom";
+import withSuspense from "./components/Suspense/Suspense";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+        <Header/>
+        <Main>
+            <Switch>
+                {Object.entries(RM).map(([key, route]) => {
+                    const {path, exact = false, redirect = null, component: Cmp} = route;
+                    const redirectPath = redirect ? redirect(true) : '';
+                    const RouteComponent = redirect ? <Redirect to={redirectPath}/> : withSuspense(Cmp);
+
+                    return (
+                        <Route
+                            key={key}
+                            path={path}
+                            exact={exact}
+                        >
+                            {RouteComponent}
+                        </Route>
+                    )
+                })}
+            </Switch>
+        </Main>
+      </>
   );
-}
+};
 
 export default App;

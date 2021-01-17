@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/data-grid": "^4.0.0-alpha.17",
+    "@material-ui/icons": "^4.11.2",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
@@ -10,10 +12,18 @@
     "@types/node": "^12.19.13",
     "@types/react": "^16.14.2",
     "@types/react-dom": "^16.9.10",
+    "axios": "^0.21.1",
+    "node-sass": "^4.14.1",
     "react": "^17.0.1",
+    "react-app-polyfill": "^2.0.0",
     "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "typescript": "^4.1.3",
+    "uuid": "^8.3.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -32,12 +42,21 @@
     "production": [
       ">0.2%",
       "not dead",
-      "not op_mini all"
+      "not op_mini all",
+      "IE 11"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 safari version",
+      "IE 11"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-arrow-functions": "^7.12.1",
+    "@material-ui/core": "^4.11.2",
+    "@types/react-redux": "^7.1.15",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/uuid": "^8.3.0"
   }
 }
