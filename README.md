@@ -1,5 +1,5 @@
 ## Available Scripts
-### `npm start`
+### `npm i`
 
 Install node modules
 
